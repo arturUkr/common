@@ -138,8 +138,7 @@ def alphabet() -> dict:
     return {key + 1: value for key, value in enumerate(alpha_)}
 
 
-
-def simple_sort(data: List[int]) -> List[list]:
+def simple_sort(data: List[int]) -> List[int]:
     """
     Sort list of ints without using built-in methods.
     Examples:
