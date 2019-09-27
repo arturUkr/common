@@ -162,7 +162,9 @@ class TestSQLQueries(unittest.TestCase):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_8_count_customers_by_city(cursor)
             actual_result = [dict(record) for record in actual_result]
-            expected_result = self.load_rows_from_file("task_8.json")
+            # expected_result = self.load_rows_from_file("task_8.json")
+            # expected_result.sort(key=lambda x: x['city'], reverse=True)
+            expected_result = sorted(self.load_rows_from_file("task_8.json"), key=lambda x: x['city'], reverse=True)
 
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
