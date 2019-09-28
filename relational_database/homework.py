@@ -74,7 +74,7 @@ def task_4_update_customer(con):
     """
     with con.cursor() as cursor:
         cursor.execute(
-            "UPDATE Customers SET CustomerName = 'Johnny Depp' WHERE CustomerID = 1"
+            "UPDATE Customers SET CustomerName = 'Johnny Depp' WHERE CustomerID = (SELECT MIN(CustomerID) FROM Customers)"
         )
 
 
