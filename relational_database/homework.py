@@ -74,7 +74,11 @@ def task_4_update_customer(con):
     """
     with con.cursor() as cursor:
         cursor.execute(
-            "UPDATE Customers SET CustomerName = 'Johnny Depp' WHERE CustomerID = (SELECT MIN(CustomerID) FROM Customers)"
+            """
+            UPDATE Customers 
+            SET CustomerName = 'Johnny Depp' 
+            WHERE CustomerID = (SELECT MIN(CustomerID) FROM Customers);
+            """
         )
 
 
@@ -87,7 +91,7 @@ def task_5_delete_the_last_customer(con) -> None:
     """
     with con.cursor() as cursor:
         cursor.execute(
-            "DELETE FROM Customers WHERE CustomerID = (SELECT MAX(CustomerID) FROM Customers)"
+            "DELETE FROM Customers WHERE CustomerID = (SELECT MAX(CustomerID) FROM Customers);"
         )
 
 
@@ -104,7 +108,7 @@ def task_6_list_all_supplier_countries(cur) -> list:
     cur.execute(
         """
         SELECT  Country
-        FROM    Suppliers
+        FROM    Suppliers;
         """
     )
     return cur.fetchall()
@@ -124,7 +128,7 @@ def task_7_list_supplier_countries_in_desc_order(cur) -> list:
         """
         SELECT  Country
         FROM    Suppliers
-        ORDER BY Country DESC
+        ORDER BY Country DESC;
         """
     )
     return cur.fetchall()
@@ -146,7 +150,7 @@ def task_8_count_customers_by_city(cur):
                 , COUNT(*) as count
         FROM    Customers
         GROUP BY city
-        ORDER BY city DESC
+        ORDER BY city DESC;
         """
     )
     return cur.fetchall()
@@ -167,7 +171,7 @@ def task_9_count_customers_by_country_with_than_10_customers(cur):
                 , COUNT(*) AS count
         FROM    Customers
         GROUP BY Country
-        HAVING  COUNT(*) > 10
+        HAVING  COUNT(*) > 10;
         """
     )
     return cur.fetchall()
@@ -186,7 +190,7 @@ def task_10_list_first_10_customers(cur):
         """
         SELECT  *  
         FROM    Customers 
-        LIMIT   10
+        LIMIT   10;
         """
     )
     return cur.fetchall()
@@ -206,7 +210,7 @@ def task_11_list_customers_starting_from_11th(cur):
         """
         SELECT  *  
         FROM    Customers 
-        WHERE   customerId > 11
+        WHERE   customerId > 11;
         """
     )
     return cur.fetchall()
@@ -229,7 +233,7 @@ def task_12_list_suppliers_from_specified_countries(cur):
                 , city
                 , country
         FROM    Suppliers
-        WHERE   Country IN ('USA', 'UK', 'Japan')
+        WHERE   Country IN ('USA', 'UK', 'Japan');
         """
     )
     return cur.fetchall()
@@ -249,7 +253,7 @@ def task_13_list_products_from_sweden_suppliers(cur):
         SELECT 	prod.ProductName
         FROM 	Products AS prod
          JOIN	Suppliers AS sup ON prod.SupplierID = sup.SupplierID
-        WHERE	sup.Country = 'Sweden'
+        WHERE	sup.Country = 'Sweden';
         """
     )
     return cur.fetchall()
@@ -274,7 +278,7 @@ def task_14_list_products_with_supplier_information(cur):
                 , sup.city
                 , sup.suppliername
         FROM 	Products  AS prod
-         JOIN	Suppliers AS sup ON prod.SupplierID = sup.SupplierID
+         JOIN	Suppliers AS sup ON prod.SupplierID = sup.SupplierID;
         """
     )
     return cur.fetchall()
@@ -297,7 +301,7 @@ def task_15_list_customers_with_any_order_or_not(cur):
                 , ord.OrderID
         FROM 	Customers AS cust
          LEFT JOIN	
-                Orders	  AS ord ON cust.CustomerID = ord.CustomerID
+                Orders	  AS ord ON cust.CustomerID = ord.CustomerID;
         """
     )
     return cur.fetchall()
@@ -322,7 +326,7 @@ def task_16_match_all_customers_and_suppliers_by_country(cur):
         FROM 	Customers AS cust
          FULL JOIN	
                 Suppliers AS sup ON cust.Country = sup.Country
-        ORDER BY customercountry, suppliercountry 
+        ORDER BY customercountry, suppliercountry;
         """
     )
     return cur.fetchall()
