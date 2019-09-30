@@ -21,7 +21,8 @@ def task_1_add_new_record_to_db(con) -> None:
     """
     with con.cursor() as cursor:
         cursor.execute(
-            "INSERT INTO Customers VALUES(92, 'Thomas', 'David', 'Some Address', 'London', '774', 'Singapore');"
+            "INSERT INTO Customers VALUES(%s, %s, %s, %s, %s, %s, %s);",
+            (92, 'Thomas', 'David', 'Some Address', 'London', '774', 'Singapore')
         )
 
 
