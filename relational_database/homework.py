@@ -21,7 +21,7 @@ def task_1_add_new_record_to_db(con) -> None:
     """
     with con.cursor() as cursor:
         cursor.execute(
-            "INSERT INTO Customers VALUES(92, 'Thomas', 'David', 'Some Address', 'London', '774', 'Singapore')"
+            "INSERT INTO Customers VALUES(92, 'Thomas', 'David', 'Some Address', 'London', '774', 'Singapore');"
         )
 
 
@@ -38,7 +38,7 @@ def task_2_list_all_customers(cur) -> list:
     cur.execute(
         """
         SELECT  *
-        FROM    Customers
+        FROM    Customers;
         """
     )
     return cur.fetchall()
@@ -57,7 +57,7 @@ def task_3_list_customers_in_germany(cur) -> list:
         """
         SELECT  *
         FROM    Customers
-        WHERE   country = 'Germany'
+        WHERE   country = 'Germany';
         """
     )
     return cur.fetchall()
