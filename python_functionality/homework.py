@@ -18,6 +18,9 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
     for elem in data:
         if elem.get('name') is not None:
             elem['name'] = elem['name'].capitalize()
+
+    # data = [{key: value.capitalize() if key == 'name' else value for key, value in elem.items()} for elem in data]
+
     return data
 
 
@@ -32,6 +35,8 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     for elem in data:
         for del_key in redundant_keys:
             elem.pop(del_key)
+            
+    # data = [{key: value for key, value in elem.items() if key not in redundant_keys} for elem in data]
     return data
 
 
