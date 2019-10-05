@@ -34,6 +34,9 @@ class Rectangle:
         if number_of_corners > 4:
             raise ValueError("Rectangle has only 4 corners")
 
+        # if number_of_corners < 0:
+        #     raise ValueError("Rectangle has only 4 corners")
+
         sum_of_corners = 0
         for i in range(number_of_corners):
             sum_of_corners += 90
@@ -61,14 +64,14 @@ class Rectangle:
     def get_radius_of_inscribed_circle(self):
         """
         Get radius of inscribed circle in rectangle
-        due to the formula:      d
+        due to the formula:      A
                               -------
-                                2√2
-        where d is diagonal of the rectangle
+                                2
+        where A is a side of the square
         :return:
         """
         if self.width != self.height:
-            assert ValueError("Can't inscribed circle in rectangle with such width and height")
-        diagonal = self.get_rectangle_diagonal()
-        radius = diagonal / 2 * math.sqrt(2)
+            raise ValueError("Can't inscribed circle in rectangle with such width and height")
+
+        radius = self.width / 2
         return radius
