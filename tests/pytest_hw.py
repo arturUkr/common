@@ -1,10 +1,10 @@
 import pytest
 from tests.homework import Rectangle
 
-
-@pytest.fixture
-def rectangle():
-    return Rectangle(width=3, height=4)
+# moved to conftest.pys
+# @pytest.fixture
+# def rectangle():
+#     return Rectangle(width=3, height=4)
 
 
 def test_01_get_rectangle_perimeter(rectangle):
