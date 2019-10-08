@@ -215,10 +215,11 @@ def task_18(value):
     Output: bcdE
 
     """
-    list_of_char = string.ascii_lowercase
+    list_of_char = string.ascii_lowercase + 'a'
     value = [list_of_char[list_of_char.index(x) + 1] for x in value]
     value = [x.upper() if x in ["a", "e", "i", "o", "u"] else x for x in value]
     return ''.join(x for x in value)
+
 
 
 def task_19(value):
