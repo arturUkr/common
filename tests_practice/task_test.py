@@ -11,7 +11,7 @@ class TestTask(unittest.TestCase):
 
     def test_task_1(self):
         l1, l2 = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-        self.assertListEqual(task_1(l1, l2), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 21, 34, 55, 89])
+        self.assertListEqual(task_1(l1, l2), [1, 2, 3, 5, 8, 13])
 
     def test_task_2(self):
         self.assertEqual(task_2("I am a good developer. I am also a writer"), 5)

@@ -10,7 +10,8 @@ def task_1(list_1, list_2):
     and write a program that returns a list that contains only the elements
     that are common between the lists (without duplicates).
     """
-    return sorted(list(set(list_1 + list_2)))
+    # return sorted(list(set(list_1 + list_2)))
+    return list(set(x for x in list_1 if x in list_2))
 
 
 def task_2(value):
