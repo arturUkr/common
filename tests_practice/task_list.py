@@ -59,9 +59,12 @@ def task_5(value):
 
 def task_6(value):
     """
-    Write a Python program to push all zeros to the end of a list.
-    Input : [0,2,3,4,6,7,10]
-    Output : [2, 3, 4, 6, 7, 10, 0]
+    Write a Python program to check a sequence of numbers is an arithmetic progression or not.
+    Input : [5, 7, 9, 11]
+    Output : True
+    In mathematics, an arithmetic progression or arithmetic sequence is a sequence of numbers such
+    that the difference between the consecutive terms is constant.
+    For example, the sequence 5, 7, 9, 11, 13, 15 ... is an arithmetic progression with common difference of 2.
     """
     diff = set()
     for i in range(len(value) - 1):
@@ -98,7 +101,14 @@ def task_9(value):
     Input: [1,2,3,(1,2),3]
     Output: 3
     """
-    return [value.index(x) for x in value if isinstance(x, tuple)]
+    inc = 0
+    for i in range(len(value)):
+        if not isinstance(value[i], tuple):
+            inc += 1
+        else:
+            break
+    return inc
+    # return [value.index(x) for x in value if isinstance(x, tuple)][0]
 
 
 def task_10(value):
@@ -204,8 +214,6 @@ def task_17(value):
     return value * task_17(value - 1) if value > 1 else 1
 
 
-
-
 def task_18(value):
     """
     Write a program that will take the str parameter being passed and modify it using the following algorithm.
@@ -219,7 +227,6 @@ def task_18(value):
     value = [list_of_char[list_of_char.index(x) + 1] for x in value]
     value = [x.upper() if x in ["a", "e", "i", "o", "u"] else x for x in value]
     return ''.join(x for x in value)
-
 
 
 def task_19(value):

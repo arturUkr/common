@@ -47,11 +47,8 @@ class TestTask(unittest.TestCase):
         self.assertListEqual(task_8([1, 2, 3, 4, 6, 7, 8]), [5])
 
     def test_task_9_equal(self):
-        self.assertEqual(task_9([1, 2, 3, (1, 2), 3]), [3])
-        self.assertEqual(task_9([1, 2, 3, (1, 2), 3, (1, )]), [3, 5])
-
-    def test_task_9_notequal(self):
-        self.assertNotEqual(task_9([1, 2, 3, (1, 2), 3, (1, )]), [1])
+        self.assertEqual(task_9([1, 2, 3, (1, 2), 3]), 3)
+        self.assertEqual(task_9([1, 2, 3, 0, (1, 2), 3, (1, )]), 4)
 
     def test_task_10_equal(self):
         self.assertEqual(task_10("Hello World and Coders"), "sredoC dna dlroW olleH")
