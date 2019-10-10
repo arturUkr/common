@@ -69,10 +69,6 @@ class TestTask(unittest.TestCase):
     def test_task_13_equal(self, mock):
         self.assertEqual(task_13(), "Michele is name My")
 
-    # @patch('builtins.input', return_value="My name is Michele")
-    # def test_task_13_notequal(self, mock):
-    #     self.assertNotEqual(task_13(), "Michele is name My My")
-
     @patch("builtins.input", return_value=9)
     def test_task_14_equal(self, mock):
         self.assertListEqual(task_14(), [1, 1, 2, 3, 5, 8, 13, 21, 34])

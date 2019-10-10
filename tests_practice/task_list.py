@@ -10,7 +10,6 @@ def task_1(list_1, list_2):
     and write a program that returns a list that contains only the elements
     that are common between the lists (without duplicates).
     """
-    # return sorted(list(set(list_1 + list_2)))
     return list(set(x for x in list_1 if x in list_2))
 
 
@@ -108,7 +107,6 @@ def task_9(value):
         else:
             break
     return inc
-    # return [value.index(x) for x in value if isinstance(x, tuple)][0]
 
 
 def task_10(value):
@@ -175,13 +173,6 @@ def task_14():
         return fibonacci(n - 1) + fibonacci(n - 2)
 
     return [fibonacci(x) for x in range(1, value + 1)]
-    # value = int(input("how many Fibonnaci numbers to generate: "))
-    # result = [1] * value
-    # if value > 2:
-    #     result[0], result[1] = 1, 1
-    #     for i in range(2, value):
-    #         result[i] = result[i - 2] + result[i - 1]
-    # return result
 
 
 def task_15(value):
@@ -208,9 +199,6 @@ def task_17(value):
     For example: if num = 4, then your program should return (4 * 3 * 2 * 1) = 24.
 
     """
-    # result = 1
-    # for num in range(1, value + 1):
-    #     result *= num
     return value * task_17(value - 1) if value > 1 else 1
 
 
@@ -221,7 +209,6 @@ def task_18(value):
     Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string.
     Input: abcd
     Output: bcdE
-
     """
     list_of_char = string.ascii_lowercase + 'a'
     value = [list_of_char[list_of_char.index(x) + 1] for x in value]
@@ -236,7 +223,6 @@ def task_19(value):
     Assume numbers and punctuation symbols will not be included in the string.
     Input: edcba
     Output: abcde
-
     """
     return ''.join(sorted(value.translate(str.maketrans('', '', string.punctuation + string.digits))))
 
