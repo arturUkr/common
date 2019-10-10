@@ -34,9 +34,6 @@ class Rectangle:
         if number_of_corners > 4:
             raise ValueError("Rectangle has only 4 corners")
 
-        # if number_of_corners < 0:
-        #     raise ValueError("Rectangle has only 4 corners")
-
         sum_of_corners = 0
         for i in range(number_of_corners):
             sum_of_corners += 90

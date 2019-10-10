@@ -1,11 +1,6 @@
 import pytest
 from tests.homework import Rectangle
 
-# moved to conftest.pys
-# @pytest.fixture
-# def rectangle():
-#     return Rectangle(width=3, height=4)
-
 
 def test_01_get_rectangle_perimeter(rectangle):
     assert rectangle.get_rectangle_perimeter() == 14
@@ -45,8 +40,3 @@ def test_09_get_radius_of_inscribed_circle_error():
     rectangle = Rectangle(width=3, height=4)
     with pytest.raises(ValueError):
         rectangle.get_radius_of_inscribed_circle()
-
-
-
-
-

@@ -32,7 +32,6 @@ class TestRectangleClass(unittest.TestCase):
     def test_06_get_sum_of_corners_error_message(self):
         with self.assertRaises(ValueError) as err:
             self.rectangle.get_sum_of_corners(5)
-        # self.assertTrue("Rectangle has only 4 corners" in str(err.exception))
         self.assertIn("Rectangle has only 4 corners", str(err.exception))
 
     @patch("tests.homework.Rectangle.get_rectangle_diagonal", return_value=5)
@@ -46,8 +45,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(func_result, 1.5)
 
     def test_09_get_radius_of_inscribed_circle_error(self):
-        # self.assertRaises(ValueError, self.rectangle.get_radius_of_inscribed_circle)
-        with self.assertRaises(ValueError) as err:
+        with self.assertRaises(ValueError):
             self.rectangle.get_radius_of_inscribed_circle()
 
 
