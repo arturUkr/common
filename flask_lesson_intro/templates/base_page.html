@@ -1,0 +1,16 @@
+{% extends "template_for_pictures.html" %}
+
+    {% block block_title %}
+         {{ title | capitalize() | replace('_', ' ') }}
+    {% endblock %}
+
+    {% block picture_info %}
+        <p></p>
+        <h1>{{ title | capitalize() | replace('_', ' ') }}</h1>
+        <p></p>
+        <img src="{{url_for('static', filename='%s.jpg'|format(title))}}" width="250px" height="250px">
+        <p></p>
+        <p>{{ text }}</p>
+        <p></p>
+        <p>Count of words in text: {{ text | wordcount() }}</p>
+    {% endblock %}
