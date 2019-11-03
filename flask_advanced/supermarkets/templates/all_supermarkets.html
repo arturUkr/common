@@ -1,0 +1,14 @@
+{% extends 'template_for_market.html' %}
+
+    {% block insert_info %}
+
+        <h1 style="margin-left: 40px">List of supermarkets:</h1>
+        <p></p>
+        <ul style="margin-left: 40px">
+            {% for market in data %}
+                <li><a href="{{url_for('markets.get_market', id=market['id'])}}">{{ market['name'] }}</a></li>
+            {% endfor %}
+
+        </ul>
+
+    {% endblock %}

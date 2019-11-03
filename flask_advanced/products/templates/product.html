@@ -1,0 +1,21 @@
+{% extends 'template_for_product.html' %}
+
+    {% block some_link %}
+        <a class="navbar-brand" href="{{url_for('products.get_all_products')}}">All products</a>
+    {% endblock %}
+
+    {% block insert_info %}
+
+        <h1 style="margin-left: 40px">{{ data['name'] | capitalize()}}</h1>
+        <img style="margin-left: 40px" src="{{url_for('products.static', filename=data['img_name'])}}" width="250px" height="250px">
+        <p></p>
+        <p style="margin-left: 40px">Description:</p>
+        <p style="margin-left: 60px">{{ data['description'] }}</p>
+        <p></p>
+        <p style="margin-left: 40px">Price: {{ data['price'] }}</p>
+
+    {% endblock %}
+
+
+
+

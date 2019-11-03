@@ -1,0 +1,33 @@
+{% extends 'template_for_market.html' %}
+
+
+    {% block some_link %}
+        <a class="navbar-brand" href="{{url_for('markets.get_all_markets')}}">All markets</a>
+    {% endblock %}
+
+    {% block insert_info %}
+
+
+
+        <p></p>
+        <h1 style="margin-left: 40px">Add market</h1>
+        <p></p>
+        <form action="" method="post" enctype="multipart/form-data" novalidate >
+            {{ form_market.hidden_tag() }}
+            <p style="margin-left: 40px">
+                {{ form_market.market_name.label }}<br>
+                {{ form_market.market_name() }}
+            </p>
+            <p style="margin-left: 40px">
+                {{ form_market.market_location.label }}<br>
+                {{ form_market.market_location() }}
+            </p>
+            <p style="margin-left: 40px">
+                {{ form_market.market_img_name.label }}<br>
+                {{ form_market.market_img_name() }}
+            </p>
+
+            <p style="margin-left: 40px">{{ form_market.market_submit() }}</p>
+         </form>
+
+    {% endblock %}
