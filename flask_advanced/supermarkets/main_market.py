@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, flash, abort, redirect, url_for
+from flask import Blueprint, request, render_template, flash, abort, redirect, url_for, session
 from supermarkets.work_with_file import load_market_data, save_market_data
 from supermarkets.form_market import AddMarket
 from werkzeug.utils import secure_filename
@@ -31,6 +31,8 @@ def get_market(id):
     try:
         all_data = load_market_data()
         data = [market for market in all_data if market.get('id') == id]
+        session[data[0]['name']] = True
+        print(session[data[0]['name']])
         return render_template('supermarket.html', data=data[0])
     except IndexError:
         abort(404)
@@ -62,3 +64,12 @@ def add_market():
 @market.errorhandler(404)
 def handle_404(error):
     return render_template('error_404.html')
+
+
+@market.route('/clear_session_market', methods=['POST', 'GET'])
+def clear_sesion():
+    prod_name = [market.get('name') for market in load_market_data()]
+    for market in prod_name:
+        if session[market]:
+            session[market] = False
+    return 'ok'
