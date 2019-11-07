@@ -1,0 +1,38 @@
+[
+
+  {
+    "name": "name_1",
+    "passport_id": "PS111222",
+    "age": 25,
+    "sex": "man",
+    "address": {
+      "city": "Kyiv",
+      "street": "street_1"
+    },
+    "room_number": 11
+  },
+
+  {
+    "name": "name_2",
+    "passport_id": "PS222333",
+    "age": 37,
+    "sex": "woman",
+    "address": {
+      "city": "Kyiv",
+      "street": "street_2"
+    },
+    "room_number": 12
+  },
+
+  {
+    "name": "name_3",
+    "passport_id": "PS333444",
+    "age": 54,
+    "sex": "man",
+    "address": {
+      "city": "Lviv",
+      "street": "street_3"
+    },
+    "room_number": 21
+  }
+]

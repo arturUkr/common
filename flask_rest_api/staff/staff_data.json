@@ -1,0 +1,23 @@
+[
+
+  {
+    "name": "name_1",
+    "passport_id": "PS111222",
+    "salary": 10000,
+    "position": "position_125"
+  },
+
+  {
+    "name": "name_2",
+    "passport_id": "PS222333",
+    "salary": 12500,
+    "position": "position_546"
+  },
+
+  {
+    "name": "name_3",
+    "passport_id": "PS333444",
+    "salary": 20000,
+    "position": "position_3000"
+  }
+]

@@ -7,9 +7,9 @@ from flask_rest_api.rooms.room_obj import Rooms
 with open('rooms/rooms_data.json', 'r') as f:
     data_rooms_json = json.load(f)
 
-data_rooms = []
+DATA_ROOMS = []
 for room in data_rooms_json:
-    data_rooms.append(
+    DATA_ROOMS.append(
         Rooms(number=room.get('number'),
               level=room.get('level'),
               status=room.get('status'),
@@ -28,45 +28,44 @@ room_parser = reqparse.RequestParser(bundle_errors=True)
 room_parser.add_argument('status', type=str)   # available, closed
 
 
-class RoomsApi(Resource):
-
+class RoomList(Resource):
     @marshal_with(room_structure)
-    def get(self, room_number=None):
+    def get(self):
         args = room_parser.parse_args(strict=True)
         if args['status']:
-            print(args['status'])
-            return [room for room in data_rooms if room.status == args['status']]
-        if room_number:
-            for room in data_rooms:
-                if room.number == room_number:
-                    return room
+            return [room for room in DATA_ROOMS if room.status == args['status']]
         else:
-            return data_rooms
+            return DATA_ROOMS
 
     def post(self):
         result = request.json
-        all_room_number = [room.number for room in data_rooms]
+        all_room_number = [room.number for room in DATA_ROOMS]
         if result['number'] not in all_room_number:
-            data_rooms.append(
+            DATA_ROOMS.append(
                 Rooms(number=result.get('number'),
                       level=result.get('level'),
                       status=result.get('status'),
                       price=result.get('price'))
             )
-        return 'post'
+            return 'post'
+        else:
+            return 'This number is blocked'
 
     def patch(self):
         result = request.json
-        for room in data_rooms:
+        for room in DATA_ROOMS:
             if room.number == result['number']:
-                room.level = result['level'] if result['level'] else room.level
-                room.status = result['status'] if result['status'] else room.status
-                room.price = result['price'] if result['price'] else room.price
+                room.level = result['level'] if result.get('level') else room.level
+                room.status = result['status'] if result.get('status') else room.status
+                room.price = result['price'] if result.get('price') else room.price
         return 'patch'
 
-    def delete(self, room_number=None):
-        room_id = room_number if room_number else request.json['number']
-        for i in range(len(data_rooms)):
-            if data_rooms[i].number == room_id:
-                data_rooms.pop(i)
+
+class RoomNumber(Resource):
+    @marshal_with(room_structure)
+    def get(self, room_number):
+        return [room for room in DATA_ROOMS if room.number == room_number]
+
+    def delete(self, room_number):
+        DATA_ROOMS[:] = [room for room in DATA_ROOMS if room.number != room_number]
         return 'delete'
