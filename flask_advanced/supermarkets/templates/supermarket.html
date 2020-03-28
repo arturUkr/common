@@ -1,0 +1,15 @@
+{% extends 'template_for_market.html' %}
+
+
+    {% block some_link %}
+        <a class="navbar-brand" href="{{url_for('markets.get_all_markets')}}">All markets</a>
+    {% endblock %}
+
+    {% block insert_info %}
+
+
+        <h1 style="margin-left: 40px">{{ data['name'] }}</h1>
+        <h2 style="margin-left: 40px">{{ data['location'] }}</h2>
+        <img style="margin-left: 40px" src="{{url_for('markets.static', filename=data['img_name'])}}" width="250px" height="250px">
+
+    {% endblock %}

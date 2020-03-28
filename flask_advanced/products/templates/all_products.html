@@ -1,0 +1,19 @@
+{% extends 'template_for_product.html' %}
+
+    {% block insert_info %}
+
+
+        <h1 style="margin-left: 40px">List of products:</h1>
+        <p></p>
+        <ul style="margin-left: 40px">
+            {% for prod in data %}
+                {% if session[prod['name']] %}
+                    <li><a>{{ prod['name'] }}</a></li>
+                {% else %}
+                    <li><a href="{{url_for('products.get_product', id=prod['id'])}}">{{ prod['name'] }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+        </ul>
+
+    {% endblock %}

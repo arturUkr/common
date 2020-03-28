@@ -1,0 +1,45 @@
+[
+
+  {
+    "number": 11,
+    "level": 1,
+    "status": "available",
+    "price": 300
+  },
+
+  {
+    "number": 12,
+    "level": 1,
+    "status": "available",
+    "price": 300
+  },
+
+  {
+    "number": 13,
+    "level": 1,
+    "status": "available",
+    "price": 400
+  },
+
+  {
+    "number": 21,
+    "level": 2,
+    "status": "closed",
+    "price": 1200
+  },
+
+  {
+    "number": 22,
+    "level": 2,
+    "status": "closed",
+    "price": 1400
+  },
+
+  {
+    "number": 23,
+    "level": 2,
+    "status": "closed",
+    "price": 1500
+  }
+
+]
